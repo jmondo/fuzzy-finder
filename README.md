@@ -5,7 +5,11 @@ This is a fork of the default Atom fuzzy find plugin to make Rails development e
 
 Searching for "Module::ClassName" will find "module/class_name.rb" 
 
+To install:
 
+1. `cd` into wherever you like to put code
+2. clone: `git clone git@github.com:jmondo/fuzzy-finder.git`
+3. install: `apm link fuzzy-finder`
 
 ## Original Readme
 Quickly find and open files using `cmd-t`.
