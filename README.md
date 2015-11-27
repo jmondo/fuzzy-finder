@@ -1,5 +1,13 @@
 # Fuzzy Finder package [![Build Status](https://travis-ci.org/atom/fuzzy-finder.svg?branch=master)](https://travis-ci.org/atom/fuzzy-finder)
 
+## Fork
+This is a fork of the default Atom fuzzy find plugin to make Rails development easier.
+
+Searching for "Module::ClassName" will find "module/class_name.rb" 
+
+
+
+## Original Readme
 Quickly find and open files using `cmd-t`.
 
   * `cmd-t` or `cmd-p` to open the file finder
