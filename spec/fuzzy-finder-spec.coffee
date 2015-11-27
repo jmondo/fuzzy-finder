@@ -787,6 +787,26 @@ describe 'FuzzyFinder', ->
       expect(secondaryMatches.first().text()).toBe 'root-dir'
       expect(secondaryMatches.last().text()).toBe 'sample'
 
+    it "highlights matches in the directory and file name", ->
+      bufferView.items = [
+        {
+          filePath: '/test/root-dir1/sample.js'
+          projectRelativePath: 'root-dir1/sample.js'
+        }
+      ]
+      bufferView.filterEditorView.getModel().setText('root-dir::sample')
+      bufferView.populateList()
+      resultView = bufferView.getSelectedItemView()
+
+      primaryMatches = resultView.find('.primary-line .character-match')
+      expect(primaryMatches.length).toBe 1
+      expect(primaryMatches.last().text()).toBe 'sample'
+
+      secondaryMatches = resultView.find('.secondary-line .character-match')
+      expect(secondaryMatches.length).toBe 2
+      expect(secondaryMatches.first().text()).toBe 'root-dir'
+      expect(secondaryMatches.last().text()).toBe 'sample'
+
     describe "when the filter text doesn't have a file path", ->
       it "moves the cursor in the active editor to that line number", ->
         [editor1, editor2] = atom.workspace.getTextEditors()
