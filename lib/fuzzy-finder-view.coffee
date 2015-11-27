@@ -221,6 +221,8 @@ class FuzzyFinderView extends SelectListView
 
   getFilterQuery: ->
     query = super
+    # Help rails developers + don't match double colons as colon-line-number
+    query = query.replace(/::/g, '')
     colon = query.indexOf(':')
     query = query[0...colon] if colon isnt -1
     # Normalize to backslashes on Windows
@@ -229,6 +231,7 @@ class FuzzyFinderView extends SelectListView
 
   getLineNumber: ->
     query = @filterEditorView.getText()
+    query = query.replace(/::/g, '')
     colon = query.indexOf(':')
     if colon is -1
       -1
